@@ -1,0 +1,54 @@
+<div class="container" style="margin-top: 30px">
+	<div class="col-md-7">
+		<div ng-hide="houses" class="alert alert-warning">There are no available houses </div>
+
+		<div class="panel panel-default" ng-show="houses">
+			<div class="panel-heading">
+				<h3 class="panel-title">Available houses</h3>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th style="min-width: 80px;">Name</th>
+						<th style="min-width: 80px;">Location</th>
+						<th style="min-width: 80px;">Rooms</th>
+						<th style="min-width: 80px;">Reservations</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="house in houses">
+						<td>{{house.name}}</td>
+						<td>{{house.location}}</td>
+						<td>{{house.rooms}}</td>
+						<td><div ng-repeat="(name,value) in house.reservations">{{name}}:
+						{{value}} </div></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="panel-footer">If a house that you expect to be able
+				to use doesn't appear here, contact your administrator.</div>
+		</div>
+	</div>
+</div>
+
+<!-- 
+<table class="ng-hide table table-striped table-condensed"
+		>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Location</th>
+				<th>Rooms</th>
+				<th>Reservations</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="house in houses" >
+				<td>{{house.name}}</td>
+				<td>{{house.location}}</td>
+				<td>{{house.rooms}}</td>
+				<td><div ng-repeat="(name,value) in house.reservations">{{name}}:
+						{{value}} </div></td>
+			</tr>
+		</tbody>
+</table> -->
