@@ -9,6 +9,10 @@
 
 module.exports = function (grunt) {
 
+  //Load  Grunt protractor runner
+  require('grunt-protractor-runner');
+
+	
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -23,6 +27,39 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+    
+	// Protractor Settings
+	  protractor: {
+		    options: {
+		          configFile: "protractor.conf.js", //your protractor config file
+		          keepAlive: true, // If false, the grunt process stops when the test fails.
+		          noColor: false, // If true, protractor will not use colors in its output.
+		          args: {
+		              // Arguments passed to the command
+		          }
+		      },
+		    chrome: {
+		        options: {
+		              args: {
+		                  browser: "chrome"
+		              }
+		          }
+		    },
+//		    safari: {
+//		        options: {
+//		            args: {
+//		                browser: "safari"
+//		            }
+//		        }
+//		    },
+//		    firefox: {
+//		        options: {
+//		            args: {
+//		                browser: "firefox"
+//		            }
+//		        }
+//		    }
+		},
 
     // Project settings
     yeoman: appConfig,

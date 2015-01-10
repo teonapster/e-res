@@ -10,16 +10,16 @@
 			<div class="panel-body">
 				<form role="form" ng-submit="login()">
 					<div class="form-group">
-						<label for="email1">Email</label> <input id="email1" required
+						<label for="email1">Email</label> <input name="email1" id="email1" required
 							autofocus ng-model="username" type="email" class="form-control"
 							placeholder="Enter Email">
 					</div>
 					<div class="form-group">
-						<label for="passwd1">Password</label> <input id="passwd1" required
+						<label for="passwd1">Password</label> <input  name="passwd1" id="passwd1" required
 							ng-model="password" type="password" class="form-control"
 							placeholder="Password">
 					</div>
-					<button type="submit" class="btn btn-primary btn-sm btn-default">Sign
+					<button name="loginBtn" type="submit" class="btn btn-primary btn-sm btn-default">Sign
 						in</button>
 				</form>
 			</div>

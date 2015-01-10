@@ -71,7 +71,8 @@ function(loginService,$scope,$location){
 		//$scope.working = true;
 		loginService
 		.login($scope.username,$scope.password)
-		.then(function(){
+		.then(function(user){
+			if(user.user)
 			loginService.gotoUserHomePage();
 		},
 		function(){

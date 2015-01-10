@@ -65,15 +65,16 @@ function($rootScope,$http,$location,$window) {
 		 userStatus:userStatus
 	 }
 }])
-.controller('LoginCtrl',['loginService','$scope','$location',
-   function(loginService,$scope,$location){
+.controller('LoginCtrl',['loginService','$scope','$location','$rootScope',
+   function(loginService,$scope,$location,$rootScope){
 	$scope.login = function() {
 		$scope.msg = undefined;
 		//$scope.working = true;
 		loginService
 		.login($scope.username,$scope.password)
-		.then(function(){
-			loginService.gotoUserHomePage();
+		.then(function(user){
+			if($rootScope.userStatus)
+				loginService.gotoUserHomePage();
 		},
 		function(){
 			$scope.msg = "Unknown credentials";}

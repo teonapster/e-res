@@ -71,14 +71,14 @@ public class ELContextListener implements ServletContextListener {
 		h2.setRooms(2);
 		em.persist(h2);
 
-		Reservation r1 = new Reservation();
+		/*Reservation r1 = new Reservation();
 		List<House> hl = new ArrayList<House>();
 		hl.add(h1);
 		u.getReservations().add(r1);
 		h1.getReservations().add(r1);
 		r1.setHouses(hl);
 		r1.setUser(u2);
-		em.persist(r1);
+		em.persist(r1);*/
 		
 		em.flush();
 		em.getTransaction().commit();
