@@ -17,8 +17,10 @@ describe('Controller: HouselistCtrl', function () {
 
   it('should return a valid list of Eres houses', function () {
 	  
+    
+    scope.houses = scope.fetchHouses();
     expect(scope.houses.length).not.toBe(0);
-    if(scope.houses.length==0)
-    	dump(scope.houses);
   });
 });
+
+

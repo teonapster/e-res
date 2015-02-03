@@ -141,9 +141,9 @@ function(loginService,$route){
 		if(!value.resolve){
 			value.resolve={};
 		}
-		if(value.templateUrl!='views/about.html'&& 
-				value.templateUrl!='views/home.html'&& 
-				value.templateUrl!='views/main.html'){
+//		if(value.templateUrl!='views/about.html'&& 
+//				value.templateUrl!='views/home.html'&& 
+//				value.templateUrl!='views/main.html'){
 			if(value.resolve.mustBeLoggedIn)
 				return;
 			value.resolve.mustBeLoggedIn = 
@@ -156,7 +156,7 @@ function(loginService,$route){
 						return true;
 					});
 				}];
-		}
+//		}
 	})
 }])
 ;

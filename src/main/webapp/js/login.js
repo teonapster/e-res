@@ -72,7 +72,7 @@ function(loginService,$scope,$location){
 		loginService
 		.login($scope.username,$scope.password)
 		.then(function(user){
-			if(user.user)
+			if(user.uid)
 			loginService.gotoUserHomePage();
 		},
 		function(){

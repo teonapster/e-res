@@ -16,12 +16,16 @@ angular.module('webappApp')
 		  fetchHouses:fetchHouses
 	  }
   }])
-  .controller('HouselistCtrl', ['$scope','HouseListFactory', function ($scope,HouseListFactory) {
+  .controller('HouselistCtrl', ['$scope','$http','HouseListFactory', function ($scope,$http,HouseListFactory) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    $scope.fetchHouses = function(){
+		  return $http.get('rest/house/list');
+	  }
+    
     var promise = HouseListFactory.fetchHouses();
 	promise.then(
 	  function(houses) {
@@ -29,5 +33,5 @@ angular.module('webappApp')
 	  });
     
     var test =1;
-    //$scope.houses = [{house:[{name:"first"},{name:"second"},{name:"third"}]},{house:[{name:"first"},{name:"second"},{name:"third"}]}];
+    //
   }]);
