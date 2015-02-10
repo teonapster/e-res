@@ -2,6 +2,7 @@ package gr.teonapster.eres.om;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -28,10 +30,10 @@ public class House implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
-	private int id;
+	private int houseId;
 	
 	@ManyToMany(mappedBy = "houses")
-	private List<Reservation> reservations;
+	private Set<Reservation> reservations;
 	
 	@NotNull
 	@Column(nullable = false)
@@ -79,11 +81,11 @@ public class House implements Serializable {
 	private int ac;
 
 	public int getId() {
-		return id;
+		return houseId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.houseId = id;
 	}
 
 	public String getName() {
@@ -158,11 +160,11 @@ public class House implements Serializable {
 		this.ac = ac;
 	}
 
-	public List<Reservation> getReservations() {
+	public Set<Reservation> getReservations() {
 		return reservations;
 	}
 
-	public void setReservations(List<Reservation> reservations) {
+	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
 	}
 	

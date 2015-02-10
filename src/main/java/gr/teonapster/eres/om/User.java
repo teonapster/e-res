@@ -82,10 +82,6 @@ public class User implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public List<Reservation> getReservations(){
-		return reservation;
-	}
 	
 	public String getEmail() {
 		return this.email;

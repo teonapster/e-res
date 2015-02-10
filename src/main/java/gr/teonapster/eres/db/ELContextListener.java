@@ -1,6 +1,7 @@
 package gr.teonapster.eres.db;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import gr.teonapster.eres.om.House;
@@ -60,25 +61,33 @@ public class ELContextListener implements ServletContextListener {
 		em.persist(u2);
 		
 		House h1 = new House();
-		h1.setName("Αρχονταρίκι");
-		h1.setLocation("Μεταμόρφωση");
+		h1.setName("Makis Rooms");
+		h1.setLocation("Chalkidiki");
+		h1.setCity("Metamorfosi");
+		h1.setCountry("Greece");
+		h1.setTv(1);
+		h1.setAc(1);
+		h1.setBalcony(2);
 		h1.setRooms(4);
 		em.persist(h1);
 		
 		House h2 = new House();
-		h2.setName("Λοξάνδρα");
+		h2.setName("Blue Dolphin");
 		h2.setLocation("Μεταμόρφωση");
 		h2.setRooms(2);
 		em.persist(h2);
-
-		/*Reservation r1 = new Reservation();
+		
+		
+		Reservation r1 = new Reservation();
 		List<House> hl = new ArrayList<House>();
 		hl.add(h1);
-		u.getReservations().add(r1);
-		h1.getReservations().add(r1);
+	//	u.getReservation().add(r1);
 		r1.setHouses(hl);
 		r1.setUser(u2);
-		em.persist(r1);*/
+		r1.setStart(new Date());
+		r1.setUntil(new Date());
+		em.persist(r1);
+		
 		
 		em.flush();
 		em.getTransaction().commit();

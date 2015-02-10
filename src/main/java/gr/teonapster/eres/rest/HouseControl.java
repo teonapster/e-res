@@ -25,10 +25,6 @@ import javax.ws.rs.core.Response.Status;
 
 @Path("/house")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-@NamedQueries({
-@NamedQuery(name="House",
-    query="SELECT h FROM House h")          
-})
 public class HouseControl {
 	@Inject
 	protected EntityManager em;
@@ -79,11 +75,17 @@ public class HouseControl {
 	
 	@GET
 	@Path("/list")
-	public Collection<House> getHouse() {
+	public Collection<House> getHouses() {
 		ss.mustBeLoggedIn();
 		 Query query = em.createQuery("SELECT h FROM House h");
 		    return (Collection<House>) query.getResultList();
 	}
 	
+	@GET
+	@Path("{h}/view")
+	public House getHouse(@PathParam("h") @Identified House h){
+		ss.mustBeLoggedIn();
+		return h;
+	}
 }
 

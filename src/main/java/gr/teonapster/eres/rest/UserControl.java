@@ -83,7 +83,7 @@ public class UserControl {
 			throw new WebApplicationException(Status.NOT_FOUND);
 		ss.mustBeLoggedIn();
 		em.persist(r);
-		u.getReservations().add(r);
+		u.getReservation().add(r);
 		em.flush();
 		return u;
 	}
