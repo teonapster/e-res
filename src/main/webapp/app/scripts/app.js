@@ -10,12 +10,14 @@
  */
 angular
   .module('webappApp', [
+	'ui.bootstrap',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -31,9 +33,14 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
-      .when('/house', {
+      .when('/house/:hid', {
         templateUrl: 'views/house.html',
-        controller: 'HouseCtrl'
+        controller: 'HouseCtrl',
+        resolve: {
+        	house : ['HouseFactory','$route',function(houseFactory,$route){
+        		return houseFactory.fetchHouse($route.current.params.hid);
+        	}]
+        }
       })
       .when('/houseList', {
         templateUrl: 'views/houselist.html',
@@ -47,9 +54,14 @@ angular
         templateUrl: 'views/reservation.html',
         controller: 'ReservationCtrl'
       })
-      .when('/reservationList', {
+      .when('/reservationList/:hid', {
         templateUrl: 'views/reservationlist.html',
-        controller: 'ReservationlistCtrl'
+        controller: 'ReservationlistCtrl',
+        resolve: {
+        	reservations:['ReservationlistFactory','$route',function(resService,$route){
+        		return resService.getHouseReservations({hid:$route.current.params.hid}).get().$promise;
+    		}]
+    	},
       })
       .when('/reservationEdit', {
         templateUrl: 'views/reservationedit.html',

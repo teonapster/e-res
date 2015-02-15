@@ -8,11 +8,13 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" /> 
+     
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    
     <!-- endbuild -->
   </head>
   <body ng-app="webappApp" >
@@ -24,12 +26,12 @@
     <div class="container" ng-controller="MainCtrl">
       <div  class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#/">Home</a></li>
+          <li class="active "><a ng-href="#/">Home</a></li>
           <li ng-show=userStatus.user ><a ng-href="#/houseList">Houses</a></li>
           <li ng-show="userStatus.user" ><a ng-href="#/reservationList">My Reservations</a></li>
           <li><a ng-href="#/about">About</a></li>
           <li ng-hide="userStatus.user" ><a ng-href="#/login">Login</a></li>
-          <li ng-show="userStatus.user" ><a ng-click="logout()">Logout</a></li>
+          <li ng-show="userStatus.user" ><a name="logoutBtn" ng-click="logout()">Logout</a></li>
         </ul>
         <h3 class="text-muted">e-Resort</h3>
       </div>
@@ -62,9 +64,10 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
+   
+<script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>    
     <script src="../bower_components/angular-animate/angular-animate.js"></script>
     <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.js"></script>

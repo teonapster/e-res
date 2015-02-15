@@ -8,10 +8,15 @@
  * Controller of the webappApp
  */
 angular.module('webappApp')
-  .controller('HouseCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .factory('HouseFactory',['$http',function($http){
+	  var fetchHouse = function(houseId){
+		  return $http.get('rest/house/'+houseId+'/view');
+	  }
+	  return {
+		  fetchHouse:fetchHouse
+	  }
+  }])
+  .controller('HouseCtrl', function ($scope,house) {
+	$scope.house = house.data;
+	
   });

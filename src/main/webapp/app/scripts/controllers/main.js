@@ -12,7 +12,7 @@ angular.module('webappApp')
   .controller('MainCtrl', function ($scope,$rootScope,loginService) {
 //	  if($rootScope.userStatus)
 //			$scope.user = $rootScope.userStatus.user;
-	var logout = function(){
+	$scope.logout = function(){
 		loginService.logout();
 	}
     $scope.awesomeThings = [

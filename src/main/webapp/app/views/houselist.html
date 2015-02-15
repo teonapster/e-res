@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 30px">
 	<div class="col-md-7">
-		<div ng-hide="houses" class="alert alert-warning">There are no available houses </div>
+		<div name="errorMsg" ng-hide="!errorMsg" class="alert alert-danger">There are no available houses </div>
 
 		<div class="panel panel-default" ng-show="houses">
 			<div class="panel-heading">
@@ -16,12 +16,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="house in houses">
+					<tr ng-repeat="house in houses | orderBy:['-rooms']">
 						<td>{{house.name}}</td>
 						<td>{{house.location}}</td>
 						<td>{{house.rooms}}</td>
-						<td><div ng-repeat="(name,value) in house.reservations">{{name}}:
-						{{value}} </div></td>
+						<td><a class="glyphicon glyphicon-eye-open" name="viewHouse{{house.id}}" href="#/house/{{house.id}}"></a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -30,25 +30,3 @@
 		</div>
 	</div>
 </div>
-
-<!-- 
-<table class="ng-hide table table-striped table-condensed"
-		>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Location</th>
-				<th>Rooms</th>
-				<th>Reservations</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="house in houses" >
-				<td>{{house.name}}</td>
-				<td>{{house.location}}</td>
-				<td>{{house.rooms}}</td>
-				<td><div ng-repeat="(name,value) in house.reservations">{{name}}:
-						{{value}} </div></td>
-			</tr>
-		</tbody>
-</table> -->
