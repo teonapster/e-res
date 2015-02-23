@@ -35,4 +35,9 @@ and run in command line (maybe super user rights are needed)
 * <code> npm install </code> (bower.js will be used automatically)
 * <code> bower install </code> (package.json will be used automatically)
 
+###Run tests
+This project contains some End-to-End tests and some Unit tests. The run task of each, is completely automated. Access the <code> e-res/src/main/webapp </code> (webapp home folder) and run: 
+* Run e2e tests with <code> grunt protractor </code>
+* Run unit tests with <code> grunt karma:unit </code>
+
 
